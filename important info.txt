@@ -1,2 +1,0 @@
-token: MTA5NDYwOTA2MDA1MTAzODM1OQ.GpCrK6.4HnTiuu64X5Dd3jGhNNpNqyFGwPnAJPGfNDbTs
-invite link bot on server: https://discord.com/api/oauth2/authorize?client_id=1094609060051038359&permissions=8&scope=bot
