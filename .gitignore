@@ -1,1 +1,14 @@
+# ignore .env file
 /.env
+
+# ignore .idea folder
+/.idea
+
+# ignore .vscode folder
+/.vscode
+
+# ignore logs files
+/discord.log
+
+# ignore important_file.txt
+/important_file.txt
