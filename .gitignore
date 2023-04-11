@@ -12,3 +12,6 @@
 
 # ignore important_file.txt
 /important_info.txt
+
+# ignore copy of board img
+/images/tictactoe_board_with_piece.png
