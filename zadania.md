@@ -7,9 +7,17 @@ Autorzy: **Maja Wiśniewska, Mateusz Walas**
 *Teleinformatyka AGH*
 
 ***
-<h3>Instrukcja</h3>
-Przed rozpoczęciem rozwiązywania zadań mały poradnik jak rozpocząć pracę.
+<h2>Instrukcja</h2>
+Przed rozpoczęciem rozwiązywania zadań mała instrukcja jak rozpocząć pracę.
 
+> Aby przyspieszyć i usprawnić całą pracę zostały już przygotowane aplikacje na platformie Discord Developer Portal.
+> Wystarczy, że zalogujesz się na swoje konto Discord i dołączysz do serwera, na którym znajdują się już dodane boty.
+><br><br>Link do serwera: ***WSTAWIĆ LINK***.
+><br><br>Każdy bot ma swoją unikalną *nazwę* i *token*. Wszystkie potrzebne dane zostały Wam przekazane na karteczkach.
+> <br>**Podczas pracy z botem należy używać tylko kanału tekstowego odpowiadającego nazwie otrzymanego bota.**
+> <br><br>**! WAŻNE !**
+> Zaprogramuj swojego bota tak, aby reagował tylko na komendy, które zaczynają się od prefiksu `jpwpID_`, gdzie ID to numer z kartki.
+>>Przykład: `jpwp1_hello`
 
 ***
 
@@ -44,7 +52,8 @@ Napisz prosty event bota Discord, który po załadowaniu się bota wyświetli wi
 > Część 2 - event on_message
 
 Rozbuduj swojego bota o event on_message, który będzie reagował na wiadomość użytkownika.
-Jeśli użytkownik wpisze komendę !hello, bot powinien odpowiedzieć na wiadomość użytkownika wiadomością "Hello!".
+
+W przypadku, gdy użytkownik wpisze komendę `jpwpID_hej`, bot powinien odpowiedzieć na czacie wiadomością `Cześć!`.
 
 ***
 
@@ -60,8 +69,15 @@ Jeśli użytkownik wpisze komendę !hello, bot powinien odpowiedzieć na wiadomo
 
 Napisz implementację gry w kółko i krzyżyk na Discordzie. Wykorzystaj do tego bibliotekę Pillow.
 
-> Możesz wykorzystać grafiki udostępnione na githubie.
-> Dla uproszczenia gra może być dla dwóch graczy, aby naprzemiennie wpisywać ruchy na czacie.
+Możesz wykorzystać grafiki udostępnione na githubie.
+Dla uproszczenia gra może być dla dwóch graczy, aby naprzemiennie wpisywać ruchy na czacie.
+
+> Przykład: <br>
+> - Po wpisaniu komendy `jpwpID_start` bot wyświetla na czacie planszę do gry
+> - gracz 1 wpisuje komendę `jpwpID_kolko 1 1`
+> - gracz 2 wpisuje komendę `jpwpID_krzyzyk 2 2`
+> - . . .
+> - rozstrzygnięcie gry
 
 ***
 
