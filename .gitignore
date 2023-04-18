@@ -14,7 +14,7 @@
 /important_info.txt
 
 # ignore copy of board img
-/images/tictactoe_board_with_piece.png
+/images/ttt/tictactoe_board_with_piece.png
 
 # ignore file with code tictactoe
 /tictactoe.py

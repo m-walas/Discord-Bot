@@ -5,6 +5,7 @@ import discord
 import logging
 import logging.handlers
 
+import battleships
 import responses
 import tictactoe
 
@@ -90,10 +91,10 @@ def run_discord_bot():
 
     # command to play tic-tac-toe game where the instructions are displayed in the chat,
     # and you have to enter start to start the game
-    @bot.command(name='play_tictactoe', aliases=['start', 'ttt', 'play_ttt', 'playttt'], description="Gra w kółko i"
-                                                                                                     "krzyżyk "
-                                                                                                     "przeciwko "
-                                                                                                     "komputerowi")
+    @bot.command(name='play_tictactoe', aliases=['ttt', 'play_ttt', 'playttt'], description="Gra w kółko i"
+                                                                                            "krzyżyk "
+                                                                                            "przeciwko "
+                                                                                            "komputerowi")
     async def play_tictactoe(ctx):
 
         # display welcome message and instructions to player
@@ -102,11 +103,11 @@ def run_discord_bot():
                                  "*Example: 0 0*\n"
                                  "Enter **exit** to end the game.\n"
                                  "You have **30 sec** for move.\n\n"
-                                 "If you are ready enter start\n\n"
+                                 "If you are ready enter startttt\n\n"
                                  "***Good luck!***\n\n")
         try:
             response = await bot.wait_for('message', check=lambda msg: msg.author == ctx.author, timeout=30)
-            if response.content == 'start':
+            if response.content == 'startttt':
                 await start_ttt(ctx)
             elif response.content == 'exit':
                 await message.edit(content="`Game ended!`")
@@ -120,20 +121,20 @@ def run_discord_bot():
     async def start_ttt(ctx):
 
         # loading images
-        tictactoe.tictactoe_board = Image.open('images/tictactoe_board.png')
-        tictactoe.tictactoe_board.save('images/tictactoe_board_with_piece.png')
+        tictactoe.tictactoe_board = Image.open('images/ttt/tictactoe_board.png')
+        tictactoe.tictactoe_board.save('images/ttt/tictactoe_board_with_piece.png')
         tictactoe.tictactoe_board.close()
-        tictactoe.tictactoe_board_with_piece = Image.open('images/tictactoe_board_with_piece.png')
+        tictactoe.tictactoe_board_with_piece = Image.open('images/ttt/tictactoe_board_with_piece.png')
 
         # tictactoe.circle1 = Image.open('images/circle1.png')
-        tictactoe.cross1 = Image.open('images/cross1.png')
-        tictactoe.circle2 = Image.open('images/circle2.png')
+        tictactoe.cross1 = Image.open('images/ttt/cross1.png')
+        tictactoe.circle2 = Image.open('images/ttt/circle2.png')
         # tictactoe.cross2 = Image.open('images/cross2.png')
         # tictactoe.line = Image.open('images/line.png')
-
+        tictactoe.clear_board()
         message = await ctx.send("`You first!`")
         # await ctx.send(tictactoe.print_board_discord())
-        await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+        await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
         while True:
             # player's turn
             while True:
@@ -155,32 +156,32 @@ def run_discord_bot():
                             # await message.edit(
                             #     content="`This place is already filled!`\n\n" + tictactoe.print_board_discord())
                             await ctx.send("`This place is already filled!`")
-                            await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+                            await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
                     else:
                         # await message.edit(
                         #     content="`Enter valid row and column!`\n\n" + tictactoe.print_board_discord())
                         await ctx.send("`Enter valid row and column!`")
-                        await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+                        await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
                 except asyncio.TimeoutError:
                     # await message.edit(
                     #     content="`Timeout! You took too long to respond.`\n\n" + tictactoe.print_board_discord())
                     await ctx.send("`Timeout! You took too long to respond.`")
-                    await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+                    await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
                     return
                 except ValueError:
                     # await message.edit(content="`Enter valid row and column!`\n\n" + tictactoe.print_board_discord())
                     await ctx.send("`Enter valid row and column!`")
-                    await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+                    await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
 
             # await message.edit(content=" \n" + tictactoe.print_board_discord())
             await ctx.send("`Your turn:`")
-            await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+            await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
 
             if tictactoe.check_win(tictactoe.board, tictactoe.player):
                 # await ctx.send("Good game!\n" + tictactoe.print_board_discord() + "\n***You won***!\n\n")
                 await ctx.send("`Good game!`")
                 # tictactoe.draw_line(tictactoe.win_position(tictactoe.board, tictactoe.player))
-                await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+                await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
                 await ctx.send("***You won!***")
                 break
             if not any(' ' in row for row in tictactoe.board):
@@ -195,12 +196,12 @@ def run_discord_bot():
             tictactoe.generate_board(row, col)
             # await message.edit(content="\nComputer's turn:\n\n" + tictactoe.print_board_discord())
             await ctx.send("`Computer's turn:`")
-            await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+            await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
             if tictactoe.check_win(tictactoe.board, tictactoe.computer):
                 # await ctx.send("Game over!\n" + tictactoe.print_board_discord() + "\n***You lost***!\n\n")
                 await ctx.send("`Game over!`")
                 # tictactoe.draw_line(tictactoe.win_position(tictactoe.board, tictactoe.computer))
-                await ctx.send(file=discord.File('images/tictactoe_board_with_piece.png'))
+                await ctx.send(file=discord.File('images/ttt/tictactoe_board_with_piece.png'))
                 await ctx.send("***You lost!***")
                 break
             if not any(' ' in row for row in tictactoe.board):
@@ -216,6 +217,143 @@ def run_discord_bot():
         tictactoe.circle2.close()
         # tictactoe.line.close()
         tictactoe.clear_board()
+
+    @bot.command(name='play_battleships', aliases=['ships', 'play_ships'],
+                 description="Gra w statki dla jednego gracza przeciwko komputerowi")
+    async def play_battleships(ctx):
+        message = await ctx.send("\n`Wojna w statki niedługo się rozpocznie!`\n"
+                                 "*Na początku zostanie wylosowana plansza komputera.*\n"
+                                 "*Podawaj kolejno cyfrę odpowiadającą numerowi wiersza,*\n"
+                                 "Następnie litere odpowiadającą kolumnie.\n"
+                                 "Masz **30 sek** na ruch.\n\n"
+                                 "Jeśli jesteś gotowy/a wpisz ***startships***\n\n"
+                                 "***POWODZENIA!***\n\n")
+        try:
+            response = await bot.wait_for('message', check=lambda msg: msg.author == ctx.author, timeout=30)
+            if response.content == 'start':
+                await start_battleships(ctx)
+            elif response.content == 'exit':
+                await message.edit(content="`Gra skończona!`")
+                return
+            else:
+                await ctx.send("\n`Wpisz poprawną komendę!`\n")
+        except asyncio.TimeoutError:
+            await message.edit(content="Gra przerwana!")
+            return
+
+    async def start_battleships(ctx):
+
+        battleships.clear_board_hit()
+        battleships.clear_board_computer()
+
+        # loadings
+        battleships.battle_ships_board = Image.open('images/ships/Battleship_game_board.png')
+        battleships.battle_ships_board.save('images/ships/Battleship_game_board_with_pieces.png')
+        battleships.battle_ships_with_pieces = Image.open('images/ships/Battleship_game_board_with_pieces.png')
+        battleships.battle_ships_board.close()
+
+        battleships.trafiony = Image.open('images/ships/trafiony.png')
+        battleships.pudlo = Image.open('images/ships/pudlo.png')
+        battleships.zatopiony = Image.open('images/ships/zatopiony.png')
+
+        battleships.generate_and_place_ship()
+
+        message = await ctx.send(content="`Komputer wylosował planszę!`")
+
+        await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+
+        while battleships.trafiony_count != 10:
+
+            print('  A B C D E F G')
+            row = 1
+            for row_board in battleships.computer_generated_board:
+                print("%d|%s|" % (row, '|'.join(row_board)))
+                row += 1
+            print('-----------------')
+            print('  A B C D E F G')
+            row = 1
+            for row_board in battleships.hit_board:
+                print("%d|%s|" % (row, '|'.join(row_board)))
+                row += 1
+
+            while True:
+                try:
+                    await ctx.send(content="`Podaj numer rzędu:`")
+                    response = await bot.wait_for('message', check=lambda msg: msg.author == ctx.author, timeout=30)
+
+                    if response.content == 'exit':
+                        await message.edit(content="`Gra skończona!`")
+                        await ctx.send(content="`Gra skończona!`")
+                        return
+                    else:
+                        row = int(response.content) - 1
+                        if row in [0, 1, 2, 3, 4, 5, 6]:
+                            await ctx.send(content="`Podaj literę kolumny:`")
+                            response = await bot.wait_for('message', check=lambda msg: msg.author == ctx.author,
+                                                          timeout=30)
+
+                            if response.content == 'exit':
+                                await message.edit(content="`Gra skończona!`")
+                                await ctx.send(content="`Gra skończona!`")
+                                return
+                            else:
+                                col = response.content.upper()
+
+                                if col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
+                                    # if battleships.computer_generated_board[row][col] == ' ':
+                                    # battleships.hit_board[row][col] = 'X' battleships.computer_generated_board[
+                                    # row][col] = 'X' battleships.generate_board(battleships.hit_board) await
+                                    # ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+                                    break
+                                # else:
+                                #     await ctx.send("`Już tu strzelałeś!`")
+                                else:
+                                    await ctx.send("Podaj poprawne współrzędne!")
+                except asyncio.TimeoutError:
+                    await message.edit(content="Gra przerwana!")
+                    return
+                except ValueError:
+                    await ctx.send("Podaj poprawne współrzędne!")
+
+            await ctx.send(f"`Strzelasz w {row + 1} {col}`")
+            col = int(battleships.letters_to_numbers[col])
+            print(row, col)
+            if battleships.computer_generated_board[row][col] == 'S':
+                battleships.computer_generated_board[row][col] = 'X'
+                battleships.hit_board[row][col] = 'X'
+                await ctx.send("`Trafiony!`")
+                battleships.trafiony_count += 1
+                if battleships.check_if_sunk(row, col) == True:
+                    await ctx.send("`Zatopiony!`")
+                    # battleships.generate_game_board(row, col)
+                #     battleships.generate_board()
+                #     await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+                # battleships.generate_board()
+                # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+            else:
+                battleships.computer_generated_board[row][col] = 'o'
+                battleships.hit_board[row][col] = 'o'
+                await ctx.send("`Pudło!`")
+                battleships.battle_ships_board_with_pieces.paste(battleships.pudlo.resize((50, 50)), battleships.piece_position(row, col))
+                battleships.battle_ships_board_with_pieces.save('images/ships/Battleship_game_board_with_pieces.png')
+                # battleships.generate_board()
+                # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+
+            await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+
+            if battleships.trafiony_count == 10:
+                await ctx.send("`Gratulacje! Wygrałeś/aś!`")
+                await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+                break
+            else:
+                await ctx.send("Strzelaj dalej!")
+
+        battleships.battle_ships_board_with_pieces.close()
+        battleships.zatopiony.close()
+        battleships.trafiony.close()
+        battleships.pudlo.close()
+        battleships.clear_board_computer()
+        battleships.clear_board_hit()
 
     # on the end of the whole function run the bot
     bot.run(TOKEN, log_handler=handler)
