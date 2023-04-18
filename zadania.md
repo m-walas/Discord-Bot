@@ -18,6 +18,8 @@ Przed rozpoczęciem rozwiązywania zadań mała instrukcja jak rozpocząć prac�
 > <br><br>**! WAŻNE !**
 > Zaprogramuj swojego bota tak, aby reagował tylko na komendy, które zaczynają się od prefiksu `jpwpID_`, gdzie ID to numer z kartki.
 >>Przykład: `jpwp1_hello`
+ 
+Wszystkie potrzebne informacje o bibliotece discord.py znajdują się na stronie: https://discordpy.readthedocs.io/en/latest/index.html.
 
 ***
 
@@ -45,9 +47,9 @@ Ponownie jak poprzednio oblicz czas wykonywania programu i porównaj wyniki.
 #### Zadanie 2 - eventy bota Discord
 - *Cel: Podstawowe poznanie z biblioteką discord.py*
 
-> Część 1 - pierwszy event bota Discord
+> Część 1 - pierwszy event bota Discord - on_ready
 
-Napisz prosty event bota Discord, który po załadowaniu się bota wyświetli wiadomość na czacie z **Twoim numerem** z kartki.
+Napisz prosty event bota Discord, który po załadowaniu się bota wyświetli wiadomość *Bot został załadowany* i numer bota na czacie odpowiedniego kanału tekstowego.
 
 > Część 2 - event on_message
 
