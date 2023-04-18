@@ -249,7 +249,7 @@ def run_discord_bot():
         # loadings
         battleships.battle_ships_board = Image.open('images/ships/Battleship_game_board.png')
         battleships.battle_ships_board.save('images/ships/Battleship_game_board_with_pieces.png')
-        battleships.battle_ships_with_pieces = Image.open('images/ships/Battleship_game_board_with_pieces.png')
+        battleships.battle_ships_board_with_pieces = Image.open('images/ships/Battleship_game_board_with_pieces.png')
         battleships.battle_ships_board.close()
 
         battleships.trafiony = Image.open('images/ships/trafiony.png')
@@ -323,20 +323,17 @@ def run_discord_bot():
                 battleships.hit_board[row][col] = 'X'
                 await ctx.send("`Trafiony!`")
                 battleships.trafiony_count += 1
-                if battleships.check_if_sunk(row, col) == True:
+                if battleships.check_if_sunk(row, col):
                     await ctx.send("`Zatopiony!`")
-                    # battleships.generate_game_board(row, col)
-                #     battleships.generate_board()
-                #     await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
-                # battleships.generate_board()
+                    battleships.generate_game_board(battleships.hit_board)
+                    # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
+                battleships.generate_game_board(battleships.hit_board)
                 # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
             else:
                 battleships.computer_generated_board[row][col] = 'o'
                 battleships.hit_board[row][col] = 'o'
                 await ctx.send("`Pudło!`")
-                battleships.battle_ships_board_with_pieces.paste(battleships.pudlo.resize((50, 50)), battleships.piece_position(row, col))
-                battleships.battle_ships_board_with_pieces.save('images/ships/Battleship_game_board_with_pieces.png')
-                # battleships.generate_board()
+                battleships.generate_game_board(battleships.hit_board)
                 # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
 
             await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))

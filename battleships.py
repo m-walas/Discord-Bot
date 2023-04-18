@@ -24,15 +24,17 @@ global zatopiony
 #         row += 1
 
 
-def generate_game_board(row, col):
+def generate_game_board(board):
 
-    if hit_board[row][col] == 'X':
-        battle_ships_board_with_pieces.paste(trafiony.resize((50, 50)), piece_position(row, col))
-    elif hit_board[row][col] == 'o':
-        battle_ships_board_with_pieces.paste(pudlo.resize((50, 50)), piece_position(row, col))
-    elif hit_board[row][col] == 'O':
-        battle_ships_board_with_pieces.paste(zatopiony.resize((50, 50)), piece_position(row, col))
-    battle_ships_board_with_pieces.save('images/ships/Battleship_game_board_with_pieces.png')
+    for row in range(7):
+        for col in range(7):
+            if board[row][col] == 'X':
+                battle_ships_board_with_pieces.paste(trafiony.resize((50, 50)), piece_position(row, col))
+            elif board[row][col] == 'o':
+                battle_ships_board_with_pieces.paste(pudlo.resize((50, 50)), piece_position(row, col))
+            elif board[row][col] == 'O':
+                battle_ships_board_with_pieces.paste(zatopiony.resize((50, 50)), piece_position(row, col))
+            battle_ships_board_with_pieces.save('images/ships/Battleship_game_board_with_pieces.png')
 
 
 def clear_board_computer():
