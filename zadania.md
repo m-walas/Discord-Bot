@@ -8,7 +8,7 @@ Autorzy: **Maja Wiśniewska, Mateusz Walas**
 
 ***
 <h2>Instrukcja</h2>
-Przed rozpoczęciem rozwiązywania zadań mała instrukcja jak rozpocząć pracę.
+Przed rozpoczęciem rozwiązywania zadań mały wstęp jak rozpocząć pracę.
 
 > Aby przyspieszyć i usprawnić całą pracę zostały już przygotowane aplikacje na platformie Discord Developer Portal.
 > Wystarczy, że zalogujesz się na swoje konto Discord i dołączysz do serwera, na którym znajdują się już dodane boty.
