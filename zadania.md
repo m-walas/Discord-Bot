@@ -16,8 +16,9 @@ Przed rozpoczęciem rozwiązywania zadań mały wstęp jak rozpocząć pracę.
 ><br><br>Każdy bot ma swoją unikalną *nazwę* i *token*. Wszystkie potrzebne dane zostały Wam przekazane na karteczkach.
 > <br>**Podczas pracy z botem należy używać tylko kanału tekstowego odpowiadającego nazwie otrzymanego bota.**
 > <br><br>**! WAŻNE !**
-> Zaprogramuj swojego bota tak, aby reagował tylko na komendy, które zaczynają się od prefiksu `jpwpID_`, gdzie ID to numer z kartki.
->>Przykład: `jpwp1_hello`
+> Zaprogramuj swojego bota tak, aby reagował tylko na wiadomości, które poprzedza `jpwpID_`, gdzie ID to numer z kartki.
+>>Przykład: `jpwp1_hej`
+> Komendy natomiast powinny być wpisywane z ustawionym prefixem, np. `!jpwp1_rybka`.
  
 Wszystkie potrzebne informacje o bibliotece discord.py znajdują się na stronie: https://discordpy.readthedocs.io/en/latest/index.html.
 
