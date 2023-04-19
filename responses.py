@@ -14,7 +14,7 @@ def handle_response(message) -> str:
 
     if p_message == 'zagramy w kółko i krzyżyk?' or p_message == 'zagramy w coś?':
         return 'Zagramy! ' \
-                  'Wpisz ".start" aby rozpocząć grę w kółko i krzyżyk!.'
+                  'Wpisz ".ships" aby rozpocząć grę w statki lub .ttt by zagrać w kółko i krzyżyk!.'
 
     # if p_message didn't match any of the above do nothing
     return ''

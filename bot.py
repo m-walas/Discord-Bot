@@ -230,7 +230,7 @@ def run_discord_bot():
                                  "***POWODZENIA!***\n\n")
         try:
             response = await bot.wait_for('message', check=lambda msg: msg.author == ctx.author, timeout=30)
-            if response.content == 'start':
+            if response.content == 'startships':
                 await start_battleships(ctx)
             elif response.content == 'exit':
                 await message.edit(content="`Gra skończona!`")
@@ -326,15 +326,12 @@ def run_discord_bot():
                 if battleships.check_if_sunk(row, col):
                     await ctx.send("`Zatopiony!`")
                     battleships.generate_game_board(battleships.hit_board)
-                    # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
                 battleships.generate_game_board(battleships.hit_board)
-                # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
             else:
                 battleships.computer_generated_board[row][col] = 'o'
                 battleships.hit_board[row][col] = 'o'
                 await ctx.send("`Pudło!`")
                 battleships.generate_game_board(battleships.hit_board)
-                # await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
 
             await ctx.send(file=discord.File('images/ships/Battleship_game_board_with_pieces.png'))
 
