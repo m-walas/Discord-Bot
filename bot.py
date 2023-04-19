@@ -26,7 +26,7 @@ async def send_message(message, user_message, is_private):
 def run_discord_bot():
     # loading token from .env file
     load_dotenv()
-    TOKEN = os.getenv('DISCORD_TOKEN')
+    TOKEN = os.getenv('TOKEN_main')
     # handler_discord = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 
     # system logger
