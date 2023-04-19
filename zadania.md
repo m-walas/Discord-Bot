@@ -52,7 +52,7 @@ Ponownie jak poprzednio oblicz czas wykonywania programu i porównaj wyniki.
 Napisz prosty event bota Discord, który po załadowaniu się bota wyświetli wiadomość *Bot został załadowany* i numer bota na czacie odpowiedniego kanału tekstowego.
 
 Potrzebne do tego mogą okazać się:
-- `client.event`
+- `bot.event`
 - `channel.send()`
 - `bot.user`
 - `on_ready()`
@@ -64,7 +64,7 @@ Rozbuduj swojego bota o event on_message, który będzie reagował na wiadomoś�
 W przypadku, gdy użytkownik wpisze komendę `jpwpID_hej`, bot powinien odpowiedzieć na czacie wiadomością `Cześć!`.
 
 Potrzebne do tego mogą okazać się:
-- `client.event`
+- `bot.event`
 - `message.content`
 - `channel.send()`
 - `on_message()`
@@ -76,10 +76,11 @@ Potrzebne do tego mogą okazać się:
 
 > Stworzenie własnej komendy bota Discord
  
-Napisz własną komendę bota Discord, która będzie reagowała na `!jpwpID_kotek`.
-Jej zadaniem będzie wysłanie na czacie losowego obrazka kotka z katalogu kotki.
+Napisz własną komendę bota Discord, która będzie reagowała na `!jpwpID_rybka`.
+Jej zadaniem będzie wysłanie na czacie losowego obrazka z katalogu paletki.
+Katalog z obrazkami znajduje się na githubie - images/paletki.
 
-Pamiętaj, że ma być to komenda, a nie event, więc nie używaj `on_message()`, tylko `@client.command()`.
+Pamiętaj, że ma być to komenda, a nie event, więc nie używaj `on_message()`, tylko `@bot.command()`.
 
 
 ***
