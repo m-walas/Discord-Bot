@@ -12,7 +12,7 @@ Przed rozpoczęciem rozwiązywania zadań mały wstęp jak rozpocząć pracę.
 
 > Aby przyspieszyć i usprawnić całą pracę zostały już przygotowane aplikacje na platformie Discord Developer Portal.
 > Wystarczy, że zalogujesz się na swoje konto Discord i dołączysz do serwera, na którym znajdują się już dodane boty.
-><br><br>Link do serwera: ***WSTAWIĆ LINK***.
+><br><br>Link do serwera: ***https://discord.gg/uNeEbM4J***.
 ><br><br>Każdy bot ma swoją unikalną *nazwę* i *token*. Wszystkie potrzebne dane zostały Wam przekazane na karteczkach.
 > <br>**Podczas pracy z botem należy używać tylko kanału tekstowego odpowiadającego nazwie otrzymanego bota.**
 > <br><br>**! WAŻNE !**
