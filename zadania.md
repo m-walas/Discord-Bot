@@ -18,8 +18,11 @@ Przed rozpoczęciem rozwiązywania zadań mały wstęp jak rozpocząć pracę.
 > <br><br>**! WAŻNE !**
 > Zaprogramuj swojego bota tak, aby reagował tylko na wiadomości, które poprzedza `jpwpID_`, gdzie ID to numer z kartki.
 >>Przykład: `jpwp1_hej`
-> Komendy natomiast powinny być wpisywane z ustawionym prefixem, np. `!jpwp1_rybka`.
- 
+> <br>
+> 
+> Komendy natomiast powinny być wpisywane z ustawionym prefixem.
+>> Przykład: `!jpwp1_rybka`
+
 Wszystkie potrzebne informacje o bibliotece discord.py znajdują się na stronie: https://discordpy.readthedocs.io/en/latest/index.html.
 
 ***
